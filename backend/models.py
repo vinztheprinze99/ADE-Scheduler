@@ -299,10 +299,10 @@ class Property(db.Model):
     level = db.Column(db.Integer(), default=OWNER_LEVEL)
 
     user = db.relationship(
-        "User", backref=db.backref("property", cascade="all, delete-orphan", back_populates="property")
+        "User", backref=db.backref("property", cascade="all, delete-orphan"), back_populates="property"
     )
     schedule = db.relationship(
-        "Schedule", backref=db.backref("property", cascade="all, delete-orphan", back_populates="property")
+        "Schedule", backref=db.backref("property", cascade="all, delete-orphan"), back_populates="property"
     )
 
 
