@@ -298,13 +298,6 @@ class Property(db.Model):
     schedule_id = db.Column(db.Integer(), db.ForeignKey("schedule.id"))
     level = db.Column(db.Integer(), default=OWNER_LEVEL)
 
-    user = db.relationship(
-        "User", backref=db.backref("property", cascade="all, delete-orphan"), back_populates="schedule"
-    )
-    schedule = db.relationship(
-        "Schedule", backref=db.backref("property", cascade="all, delete-orphan"), back_populates="user"
-    )
-
 
 class Usage(db.Model):
     __tablename__ = "flask_usage"
